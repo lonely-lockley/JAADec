@@ -222,7 +222,7 @@ public class ICStream implements Constants, HCB, ScaleFactorTable, IQTable {
 						float energy = 0;
 
 						for(k = 0; k<width; k++) {
-							randomState *= 1664525+1013904223;
+							randomState = 1664525*randomState+1013904223;
 							data[off+k] = randomState;
 							energy += data[off+k]*data[off+k];
 						}
@@ -259,7 +259,7 @@ public class ICStream implements Constants, HCB, ScaleFactorTable, IQTable {
 	 * is returned.
 	 * @return the inverse quantized and scaled data
 	 */
-	public float[] getInvQuantData() throws AACException {
+	public float[] getInvQuantData() {
 		return data;
 	}
 
